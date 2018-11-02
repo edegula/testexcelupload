@@ -59,27 +59,30 @@ sap.ui.define(
 			return oModel;
 		},
 		
-		
+
+	
 		handleUploadComplete: function(oEvent) {
 			var sResponse = oEvent.getParameter("response");
 			MessageToast.show(sResponse);
 		},
 		
 		handleUploadPress: function(oEvent) {
-			//var FileUploader = this.byId("fileUploader");
-			//FileUploader.upload();
-			
+
 			var fU = this.getView().byId("fileUploader");
     		var domRef = fU.getFocusDomRef();
-    		var fileDisplayArea = this.getView().byId("textDisplay");
-    		var tableDisplay = this.getView().byId("tableDisplay2");
     		var file = domRef.files[0];
-    		var reader = new FileReader();
-    		var params = "EmployeesJson=";
-    		var text = "Sample";
     		
+    		var tableDisplay = this.getView().byId("tableDisplay2");
+    		
+    		var reader = new FileReader();
+    		
+    		let convertRowObjectArrayToRecords = function(excelData) {
+        	    excelData.Sheet1.splice(0,1);
+        	    return excelData;
+	        };
+    		
+
     		reader.onload = function(event) {
-//    			fileDisplayArea.setText(reader.result);
 
 				var data = reader.result;
     			var workbook = XLSX.read(data, {
@@ -92,15 +95,19 @@ sap.ui.define(
 					if(roa.length) result[sheetName] = roa;
 				});
         		
-        		var output = JSON.stringify(result, 2, 2);
+        		convertRowObjectArrayToRecords(result);
+        		
         		var oModel = new JSONModel(result);
         		tableDisplay.setModel(oModel);
 
     		};
     		
     		reader.readAsBinaryString(file);
-
+    		
 		}
+		
+
+		
 	});
 
 	return ControllerController;
