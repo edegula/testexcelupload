@@ -1,0 +1,104 @@
+<mvc:View 
+	controllerName="sap.ui.unified.sample.FileUploaderBasic.Controller" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:t="sap.ui.table"
+	xmlns:u="sap.ui.unified" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	class="viewPadding">
+	<Page showHeader="true" enableScrolling="false" class="sapUiContentPadding">
+		<subHeader>
+			<Toolbar>
+				<u:FileUploader 
+					id="fileUploader" 
+					name="myFileUpload" 
+					sendXHR="true" 
+					tooltip="Upload your file to the local server"
+					uploadComplete="handleUploadComplete"/>
+				<Button text="Upload File" press="handleUploadPress"/>
+			</Toolbar>
+		</subHeader>
+		<content>
+					
+				<!--<Text id="textDisplay" text=""/>-->
+				
+				<!--<t:Table id="tableDisplay" rows="{/ProductCollection}" title="Products" selectionMode="MultiToggle" visibleRowCount="7">-->
+				<!--	<t:columns>-->
+				<!--		<t:Column >-->
+				<!--			<Label text="Product Name"/>-->
+				<!--			<t:template>-->
+				<!--				<Text text="Name" wrapping="false"/>-->
+				<!--			</t:template>-->
+				<!--		</t:Column>-->
+				<!--		<t:Column width="11rem">-->
+				<!--			<Label text="Product Id"/>-->
+				<!--			<t:template>-->
+				<!--				<Input value="{ProductId}"/>-->
+				<!--			</t:template>-->
+				<!--		</t:Column>-->
+				<!--		<t:Column width="6rem" hAlign="End">-->
+				<!--			<Label text="Quantity"/>-->
+				<!--			<t:template>-->
+				<!--				<Label text="{Quantity}"/>-->
+				<!--			</t:template>-->
+				<!--		</t:Column>-->
+				<!--	</t:columns>-->
+				<!--</t:Table>-->
+				
+				<t:Table id="tableDisplay2" rows="{/Sheet1}" title="Entries" visibleRowCount="10">
+					<t:columns>
+						<t:Column>
+							<Label text="Column1"/>
+							<t:template>
+								<Text text="{0}"/>
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<Label text="Column2"/>
+							<t:template>
+								<Text text="{1}"/>
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<Label text="Colum3"/>
+							<t:template>
+								<Text text="{2}"/>
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<Label text="Column4"/>
+							<t:template>
+								<Text text="{3}"/>
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<Label text="Column5"/>
+							<t:template>
+								<Text text="{4}"/>
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<Label text="Column6"/>
+							<t:template>
+								<Text text="{5}"/>
+							</t:template>
+						</t:Column>
+						<t:Column>
+							<Label text="Column7"/>
+							<t:template>
+								<Text text="{6}"/>
+							</t:template>
+						</t:Column>						
+						<t:Column>
+							<Label text="Column8"/>
+							<t:template>
+								<Text text="{7}"/>
+							</t:template>
+						</t:Column>							
+					</t:columns>
+				</t:Table>
+				
+
+		</content>
+	</Page>
+</mvc:View>
