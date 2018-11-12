@@ -1,4 +1,5 @@
 <mvc:View 
+    	height="100%"
 	controllerName="com.kalayaan.edegula.ExcelUpload.controller.Controller" 
 	xmlns:l="sap.ui.layout" 
 	xmlns:t="sap.ui.table"
@@ -6,7 +7,7 @@
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns="sap.m" 
 	class="viewPadding">
-	<Page showHeader="false" enableScrolling="false" class="sapUiContentPadding">
+	<Page showHeader="true" enableScrolling="false" class="sapUiContentPadding"  >
 		<subHeader>
 			<Toolbar>
 				<u:FileUploader 
@@ -20,7 +21,8 @@
 			</Toolbar>
 		</subHeader>
 		<content>
-				<t:Table id="tableDisplay2" rows="{/Sheet1}" title="Entries Sample" visibleRowCount="10">
+		    
+				<t:Table id="tableDisplay2" rows="{/Sheet1}" visibleRowCount="10">
 					<t:columns>
 						<t:Column>
 							<Label text="Column1"/>
@@ -71,7 +73,14 @@
 							</t:template>
 						</t:Column>							
 					</t:columns>
-				</t:Table>
+				</t:Table>  
 		</content>
+<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="Save" type="Accept" />
+				<Button text="Cancel" type="Reject" />
+			</Toolbar>
+		</footer>
 	</Page>
 </mvc:View>
