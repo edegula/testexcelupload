@@ -1,5 +1,5 @@
 <mvc:View 
-	controllerName="sap.ui.unified.edegula.ExcelUpload.controller.Controller" 
+	controllerName="com.kalayaan.edegula.ExcelUpload.controller.Controller" 
 	xmlns:l="sap.ui.layout" 
 	xmlns:t="sap.ui.table"
 	xmlns:u="sap.ui.unified" 
@@ -20,8 +20,7 @@
 			</Toolbar>
 		</subHeader>
 		<content>
-				
-				<t:Table id="tableDisplay2" rows="{/Sheet1}" title="Entries" visibleRowCount="10">
+				<t:Table id="tableDisplay2" rows="{/Sheet1}" title="Entries Sample" visibleRowCount="10">
 					<t:columns>
 						<t:Column>
 							<Label text="Column1"/>
@@ -73,8 +72,6 @@
 						</t:Column>							
 					</t:columns>
 				</t:Table>
-				
-
 		</content>
 	</Page>
 </mvc:View>

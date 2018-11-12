@@ -1,9 +1,9 @@
 sap.ui.define(["sap/ui/core/UIComponent"], function (UIComponent) {
 	"use strict";
-	var Component = UIComponent.extend("sap.ui.unified.edegula.ExcelUpload.Component", {
+	var Component = UIComponent.extend("com.kalayaan.edegula.ExcelUpload.Component", {
 		metadata: {
 			rootView: {
-				"viewName": "sap.ui.unified.edegula.ExcelUpload.view.View",
+				"viewName": "com.kalayaan.edegula.ExcelUpload.view.View",
 				"type": "XML",
 				"async": true
 			},

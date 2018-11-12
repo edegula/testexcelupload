@@ -5,12 +5,12 @@ sap.ui.define(
 		'sap/ui/core/mvc/Controller',
 		'sap/ui/model/json/JSONModel',
 		'sap/ui/core/format/DateFormat',
-		'sap/ui/unified/edegula/ExcelUpload/libs/xlsx.full.min'
+		'com/kalayaan/edegula/ExcelUpload/libs/xlsx.full.min'
 		],
 	function(MessageToast, Controller, JSONModel, DateFormat, xlsx, jszip) {
 	"use strict";
 
-	var ControllerController = Controller.extend("sap.ui.unified.edegula.ExcelUpload.Controller", {
+	var ControllerController = Controller.extend("com.kalayaan.edegula.ExcelUpload.Controller", {
 		
 		handleUploadComplete: function(oEvent) {
 			var sResponse = oEvent.getParameter("response");
@@ -27,7 +27,7 @@ sap.ui.define(
            
                     success: function(oRetrievedResult, response) { 
                         /* do something */ 
-                        MessageToast.show("Test");
+                        MessageToast.show("Odata Call Success!");
                         
                     },
                     error: function(oError) { /* do something */ 
