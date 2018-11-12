@@ -5,16 +5,37 @@ sap.ui.define(
 		'sap/ui/core/mvc/Controller',
 		'sap/ui/model/json/JSONModel',
 		'sap/ui/core/format/DateFormat',
-		'sap/ui/unified/sample/FileUploaderBasic/libs/xlsx.full.min'
+		'sap/ui/unified/edegula/ExcelUpload/libs/xlsx.full.min'
 		],
 	function(MessageToast, Controller, JSONModel, DateFormat, xlsx, jszip) {
 	"use strict";
 
-	var ControllerController = Controller.extend("sap.ui.unified.sample.FileUploaderBasic.Controller", {
+	var ControllerController = Controller.extend("sap.ui.unified.edegula.ExcelUpload.Controller", {
 		
 		handleUploadComplete: function(oEvent) {
 			var sResponse = oEvent.getParameter("response");
 			MessageToast.show(sResponse);
+		},
+		
+		handleSaveFile: function(oEvent) {
+		  
+		   var sServiceUrl = "/sap/opu/odata/sap/Z_VMI_SRV"; // ODATA URL
+
+           var oDModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+           
+           oDModel.read("ReplenishmentRuleSet?$filter=(SalesOrganization ge '1207' and DistChannel eq 'RO' and Plant eq '1002')", {
+           
+                    success: function(oRetrievedResult, response) { 
+                        /* do something */ 
+                        MessageToast.show("Test");
+                        
+                    },
+                    error: function(oError) { /* do something */ 
+                        MessageToast.show("Error");
+                    }
+                }
+            );
+		    
 		},
 		
 		handleUploadPress: function(oEvent) {

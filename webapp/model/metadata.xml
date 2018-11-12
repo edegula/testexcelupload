@@ -1,0 +1,168 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Z_VMI_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="CollectionSchedule" sap:content-version="1">
+				<Key><PropertyRef Name="Collschedule"/></Key><Property Name="Collschedule" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Collection Schedule" sap:updatable="false"
+					sap:filterable="false"/><Property Name="Repleadtime" Type="Edm.Decimal" Precision="4" Scale="2" sap:label="Repl Lead Time" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Monday" Type="Edm.Boolean" sap:label="Monday" sap:sortable="false" sap:filterable="false"/><Property Name="Tuesday" Type="Edm.Boolean" sap:label="Tuesday" sap:sortable="false" sap:filterable="false"/><Property Name="Wednesday" Type="Edm.Boolean" sap:label="Wednesday" sap:sortable="false" sap:filterable="false"/><Property Name="Thursday" Type="Edm.Boolean" sap:label="Thursday" sap:sortable="false" sap:filterable="false"/><Property Name="Friday" Type="Edm.Boolean" sap:label="Friday" sap:sortable="false" sap:filterable="false"/><Property Name="Saturday" Type="Edm.Boolean" sap:label="Saturday" sap:sortable="false" sap:filterable="false"/><Property Name="Sunday" Type="Edm.Boolean" sap:label="Sunday" sap:sortable="false" sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="CollectionSched Desc" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<EntityType Name="RouteGroup" sap:content-version="1">
+				<Key><PropertyRef Name="Route"/></Key><Property Name="Route" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Route" sap:updatable="false" sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Route Description" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<EntityType Name="ZvmiCollschedSh" sap:content-version="1">
+				<Key><PropertyRef Name="Collschedule"/></Key><Property Name="Collschedule" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Collection Schedule" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="CollectionSched Desc" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Repleadtime" Type="Edm.Decimal" Nullable="false" Precision="4" Scale="2" sap:label="Repl Lead Time" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Monday" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Monday" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Tuesday" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Tuesday" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Wednesday" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Wednesday" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Thursday" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Thursday" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Friday" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Friday" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Saturday" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Saturday" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sunday" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Sunday" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="VmiModel" sap:content-version="1">
+				<Key><PropertyRef Name="Model"/></Key><Property Name="Model" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="VMI Model" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="VmiStatus" sap:content-version="1">
+				<Key><PropertyRef Name="Status"/></Key><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="VMI Status" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ReplenishmentRule" sap:content-version="1">
+				<Key><PropertyRef Name="SalesOrganization"/><PropertyRef Name="DistChannel"/><PropertyRef Name="Division"/><PropertyRef Name="ShipTo"/><PropertyRef Name="Material"/><PropertyRef Name="Plant"/></Key><Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Sales Org." sap:updatable="false"/><Property Name="DistChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Distr. Channel" sap:updatable="false"/><Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Division" sap:updatable="false" sap:filterable="false"/><Property Name="ShipTo" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Ship-to party" sap:updatable="false"/><Property Name="ShipToName" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Name 1" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Material" sap:updatable="false"/><Property Name="MaterialDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Plant" sap:updatable="false"/><Property Name="StorageLoc" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Stor. Location" sap:sortable="false"
+					sap:filterable="false"/><Property Name="VmiModel" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="VMI Model" sap:sortable="false" sap:filterable="false"/><Property Name="Collschedule" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Collection Schedule" sap:sortable="false"/><Property Name="Route" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Route" sap:sortable="false" sap:filterable="false"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="VMI Status" sap:sortable="false"/><Property Name="BaseUom" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Base Unit" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/><Property Name="SafetyStockDays" Type="Edm.Decimal" Precision="4" Scale="2" sap:label="Safety Stock Days" sap:sortable="false"
+					sap:filterable="false"/><Property Name="HistoricRevisionCycle" Type="Edm.Decimal" Precision="4" Scale="2" sap:label="Historic Rev Cycle" sap:sortable="false"
+					sap:filterable="false"/><Property Name="MaxRevisionCycle" Type="Edm.Decimal" Precision="3" Scale="0" sap:label="Max Revision Cycle" sap:sortable="false"
+					sap:filterable="false"/><Property Name="ForecastRevisionCycle" Type="Edm.Decimal" Precision="4" Scale="2" sap:label="Forecast Rev Cycle" sap:sortable="false"
+					sap:filterable="false"/><Property Name="VmiFactor" Type="Edm.Decimal" Nullable="false" Precision="4" Scale="2" sap:label="VMI Factor" sap:sortable="false"
+					sap:filterable="false"/><Property Name="WhUom" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="WM unit" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/><Property Name="MinOrderQty" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="MinmaxUom" sap:label="Min Order Qty" sap:sortable="false"
+					sap:filterable="false"/><Property Name="MaxOrderQty" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="MinmaxUom" sap:label="Max Order Qty" sap:sortable="false"
+					sap:filterable="false"/><Property Name="RoundingQty" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="MinmaxUom" sap:label="Rounding Quantity"
+					sap:sortable="false" sap:filterable="false"/><Property Name="MinmaxUom" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="UM for Quantity" sap:sortable="false"
+					sap:filterable="false" sap:semantics="unit-of-measure"/></EntityType>
+			<EntityType Name="ReplenishmentOrder" sap:content-version="1">
+				<Key><PropertyRef Name="KeyDate"/><PropertyRef Name="SalesOrganization"/><PropertyRef Name="DistChannel"/><PropertyRef Name="SoldTo"/><PropertyRef Name="ShipTo"/><PropertyRef Name="Plant"/><PropertyRef Name="StorageLoc"/><PropertyRef Name="Collschedule"/><PropertyRef Name="VmiModel"/><PropertyRef Name="Route"/><PropertyRef Name="Material"/></Key><Property Name="KeyDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Date" sap:creatable="false" sap:updatable="false"/><Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Sales Org." sap:creatable="false"
+					sap:updatable="false"/><Property Name="DistChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Distr. Channel" sap:creatable="false"
+					sap:updatable="false"/><Property Name="SoldTo" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Sold-to party" sap:creatable="false"
+					sap:updatable="false"/><Property Name="ShipTo" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Ship-to party" sap:creatable="false"
+					sap:updatable="false"/><Property Name="ShipToName" Type="Edm.String" Nullable="false" MaxLength="35" sap:label="Name" sap:creatable="false" sap:updatable="false"
+					sap:filterable="false"/><Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Plant" sap:creatable="false" sap:updatable="false"/><Property Name="StorageLoc" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Stor. Location" sap:creatable="false"
+					sap:updatable="false"/><Property Name="Collschedule" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Collection Schedule" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/><Property Name="VmiModel" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="VMI Model" sap:creatable="false" sap:updatable="false"/><Property Name="Route" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Route" sap:creatable="false" sap:updatable="false"/><Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Material" sap:creatable="false" sap:updatable="false"/><Property Name="MaterialDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="BaseUom" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Base Unit" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/><Property Name="SpecialStock" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Special Stock" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="UnrestrictedStock" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="MinmaxUom"
+					sap:label="Unrestricted" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="QiStock" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="MinmaxUom" sap:label="In Qual. Insp."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="UrStockPrevious" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="MinmaxUom" sap:label="Unrestr.-use"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="QiStockPrevious" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="MinmaxUom"
+					sap:label="In qual. insp." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="AtpQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="MinmaxUom" sap:label="Committed Qty"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="OpenQuantity" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:unit="MinmaxUom" sap:label="Open Quantity"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Repleadtime" Type="Edm.Decimal" Nullable="false" Precision="4" Scale="2" sap:label="Repl Lead Time" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SafetyStockDays" Type="Edm.Decimal" Nullable="false" Precision="4" Scale="2" sap:label="Safety Stock Days"
+					sap:creatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TotalLeadTime" Type="Edm.Decimal" Nullable="false" Precision="4" Scale="2" sap:label="Total Lead Time" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="HistoricRevisionCycle" Type="Edm.Decimal" Nullable="false" Precision="4" Scale="2" sap:label="Historic Rev Cycle"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MaxRevisionCycle" Type="Edm.Decimal" Nullable="false" Precision="3" Scale="0" sap:label="Max Revision Cycle"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="HistoricAveSales" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="MinmaxUom"
+					sap:label="Historic Ave Sales" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ForecastRevisionCycle" Type="Edm.Decimal" Nullable="false" Precision="4" Scale="2" sap:label="Forecast Rev Cycle"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ForecastAveSales" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="MinmaxUom"
+					sap:label="Forecast Ave Sales" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="VmiFactor" Type="Edm.Decimal" Precision="4" Scale="2" sap:label="VMI Factor" sap:creatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="AveDailySales" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="MinmaxUom"
+					sap:label="Average Daily Sales" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FillUpQty" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="MinmaxUom" sap:label="Fill Up Quantity"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Shortage" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="MinmaxUom" sap:label="Shortage Quantity"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="OrderQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="MinmaxUom" sap:label="Order Quantity"
+					sap:creatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MinmaxUom" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="WM unit" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/><Property Name="OrderQuantityWhUom" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="WhUom" sap:label="Order Quantity"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="WhUom" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="WM unit" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/><Property Name="ActualOrderQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="MinmaxUom"
+					sap:label="Order Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SoStatus" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="SO Status" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ItemWeight" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="ItemWeightUom" sap:label="Gross Weight"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ItemWeightUom" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Weight unit" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/><Property Name="ItemVolume" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="ItemVolumeUom" sap:label="Volume"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ItemVolumeUom" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Volume unit" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/><Property Name="Monday" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Monday" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Tuesday" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Tuesday" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Wednesday" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Wednesday" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Thursday" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Thursday" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Friday" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Friday" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Saturday" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Saturday" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Sunday" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Sunday" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HTvko" sap:content-version="1">
+				<Key><PropertyRef Name="Vkorg"/></Key><Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Sales Org." sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Vtext" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Name" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HTvkov" sap:content-version="1">
+				<Key><PropertyRef Name="Vkorg"/><PropertyRef Name="Vtweg"/></Key><Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Sales Org." sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Vtweg" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Distr. Channel" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Vtext" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Name" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HTvta" sap:content-version="1">
+				<Key><PropertyRef Name="Vkorg"/><PropertyRef Name="Vtweg"/><PropertyRef Name="Spart"/></Key><Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Sales Org." sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Vtweg" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Distr. Channel" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Spart" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Division" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="VtextSpa" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Name" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Debis" sap:content-version="1">
+				<Key><PropertyRef Name="Vkorg"/><PropertyRef Name="Kunnr"/><PropertyRef Name="Vtweg"/><PropertyRef Name="Spart"/></Key><Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Sales Org." sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Sortl" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Search term" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Land1" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Country" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Pstlz" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Postal Code" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Mcod3" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="City" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Mcod1" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Name" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Customer" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Vtweg" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Distr. Channel" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Spart" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Division" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Vkbur" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Sales Office" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Vkgrp" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Sales Group" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Mat1m" sap:content-version="1">
+				<Key><PropertyRef Name="Spras"/><PropertyRef Name="Matnr"/></Key><Property Name="Maktg" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Language" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Material" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HT001w" sap:content-version="1">
+				<Key><PropertyRef Name="Werks"/></Key><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Plant" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Sort2" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Search Term 2" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Sort1" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Search Term 1" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="PostCode1" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Postal Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="City1" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="City" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Name2" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Name 2" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Name" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Nation" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Address Version" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HT001lOld" sap:content-version="1">
+				<Key><PropertyRef Name="Werks"/><PropertyRef Name="Lgort"/></Key><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Plant" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Lgort" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Stor. Location" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lgobe" Type="Edm.String" Nullable="false" MaxLength="16" sap:label="Description" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HT006" sap:content-version="1">
+				<Key><PropertyRef Name="Msehi"/></Key><Property Name="Mseh3" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Commercial" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Msehi" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Int. meas. unit" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/><Property Name="Msehl" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Unit text" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Txdim" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Dimension text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityContainer Name="Z_VMI_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="CollectionScheduleSet" EntityType="Z_VMI_SRV.CollectionSchedule" sap:pageable="false" sap:content-version="1"/><EntitySet Name="RouteGroupSet" EntityType="Z_VMI_SRV.RouteGroup" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ZvmiCollschedShSet" EntityType="Z_VMI_SRV.ZvmiCollschedSh" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="VmiModelSet" EntityType="Z_VMI_SRV.VmiModel" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="VmiStatusSet" EntityType="Z_VMI_SRV.VmiStatus" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ReplenishmentRuleSet" EntityType="Z_VMI_SRV.ReplenishmentRule" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ReplenishmentOrderSet" EntityType="Z_VMI_SRV.ReplenishmentOrder" sap:deletable="false" sap:pageable="false"
+				sap:content-version="1"/><EntitySet Name="HTvkoSet" EntityType="Z_VMI_SRV.HTvko" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="HTvkovSet" EntityType="Z_VMI_SRV.HTvkov" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="HTvtaSet" EntityType="Z_VMI_SRV.HTvta" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="DebisSet" EntityType="Z_VMI_SRV.Debis" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="Mat1mSet" EntityType="Z_VMI_SRV.Mat1m" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="HT001wSet" EntityType="Z_VMI_SRV.HT001w" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="HT001lOldSet" EntityType="Z_VMI_SRV.HT001lOld" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="HT006Set" EntityType="Z_VMI_SRV.HT006" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><FunctionImport Name="CreateSO" ReturnType="Collection(Z_VMI_SRV.ReplenishmentOrder)" EntitySet="ReplenishmentOrderSet" m:HttpMethod="GET"
+				sap:action-for="Z_VMI_SRV.ReplenishmentOrder"/>
+				<FunctionImport Name="AppendReplenishments" ReturnType="Collection(Z_VMI_SRV.ReplenishmentOrder)" EntitySet="ReplenishmentOrderSet"
+					m:HttpMethod="GET" sap:action-for="Z_VMI_SRV.ReplenishmentOrder"><Parameter Name="SalesOrganization" Type="Edm.String" Mode="In"/><Parameter Name="KeyDate" Type="Edm.DateTime" Mode="In" Precision="0"/><Parameter Name="DistChannel" Type="Edm.String" Mode="In"/><Parameter Name="SoldTo" Type="Edm.String" Mode="In"/><Parameter Name="ShipTo" Type="Edm.String" Mode="In"/><Parameter Name="Plant" Type="Edm.String" Mode="In"/><Parameter Name="StorageLoc" Type="Edm.String" Mode="In"/><Parameter Name="Collschedule" Type="Edm.String" Mode="In"/><Parameter Name="VmiModel" Type="Edm.String" Mode="In"/><Parameter Name="Material" Type="Edm.String" Mode="In"/><Parameter Name="Route" Type="Edm.String" Mode="In" MaxLength="3"/></FunctionImport>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://fiorifd0:8888/sap/opu/odata/sap/Z_VMI_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="http://fiorifd0:8888/sap/opu/odata/sap/Z_VMI_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
