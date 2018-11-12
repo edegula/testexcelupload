@@ -1,7 +1,6 @@
 {
 	"_version": "1.12.0",
 	"sap.app": {
-		"_version": "1.3.0",
 		"id": "com.kalayaan.edegula.demo.ExcelUpload",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
@@ -12,7 +11,6 @@
 		}
 	},
 	"sap.ui": {
-		"_version": "1.3.0",
 		"technology": "UI5",
 		"deviceTypes": {
 			"desktop": true,
@@ -24,9 +22,10 @@
 	"sap.ui5": {
 		"_version": "1.2.0",
 		"rootView": {
-			"viewName": "com.kalayaan.edegula.demo.ExcelUpload.view.App",
+			"viewName": "com.kalayaan.edegula.ExcelUpload.view.View",
 			"type": "XML",
-			"id": "app"
+			"id": "app",
+			"async" : true
 		},
 		"autoPrefixId": true,
 		"handleValidation": true,
@@ -44,6 +43,9 @@
 				},
 				"sap.ui.table": {
 					"minVersion": "1.56.0"
+				},
+				"sap.ui.unified": {
+				    "minVersion": "1.56.0"
 				}
 			}
 		},
